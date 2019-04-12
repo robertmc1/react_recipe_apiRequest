@@ -4,11 +4,31 @@ import RecipeSearch from './RecipeSearch';
 
 class RecipeList extends Component {
     render() {
+        const {recipes} = this.props;
+        //console.log(this.props.recipes);
         return (
             <React.Fragment>
-                <h1>Hello from List</h1>
                 <RecipeSearch/>
-                <Recipe/>
+
+                <div className="container my-5">
+                    {/*TITLE*/}
+                    <div className="row">
+                        <div className="col-10 mx-auto col-md-6 text-center text-uppercase mb-3">
+                            <h1 className="text-slanted">
+                                recetas
+                            </h1>
+                        </div>
+                    </div>
+                    {/*END TITLE*/}
+                    <div className="row">
+                        {
+                            recipes.map(recipe => {
+                                return (<Recipe key={recipe.recipe_id} recipe={recipe} />)
+                            })
+                        }
+                    </div>
+                </div>
+
             </React.Fragment>
         );
     }
