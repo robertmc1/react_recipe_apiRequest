@@ -6,7 +6,7 @@ import RecipeDetails from "./components/RecipeDetails";
 
 class App extends Component {
   state = {
-    // recipes: recipes,//mi data local
+    recipes: recipes,//mi data local
     url:"https://www.food2fork.com/api/search?key=80c5575dc7188084b7e44abe520a3ed8",
     base_url: "https://www.food2fork.com/api/search?key=80c5575dc7188084b7e44abe520a3ed8",
     details_id: 35385,
