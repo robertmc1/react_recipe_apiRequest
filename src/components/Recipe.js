@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
 
 class Recipe extends Component {
     render() {
-        const {image_url, title, source_url, publisher, recipe_id} = this.props.recipe;
+        const {
+            image_url,
+            title,
+            source_url,
+            publisher,
+            recipe_id
+        } = this.props.recipe;
+        const { handleDetails } = this.props;
+
         return (
             <React.Fragment>
                 <div className="col-10 mx-auto col-md-6 col-lg-4 my-3">
@@ -16,7 +23,9 @@ class Recipe extends Component {
                             </h6>
                         </div>
                         <div className="card-footer">
-                            <button type="button" className="btn btn-primary text-capitalize">
+                            <button type="button"
+                                    className="btn btn-primary text-capitalize"
+                                    onClick={() => handleDetails(0, recipe_id)}>
                                 detalles
                             </button>
                             <a href={source_url}

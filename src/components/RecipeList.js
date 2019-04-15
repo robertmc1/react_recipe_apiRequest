@@ -4,7 +4,7 @@ import RecipeSearch from './RecipeSearch';
 
 class RecipeList extends Component {
     render() {
-        const {recipes} = this.props;
+        const {recipes, handleDetails} = this.props;
         //console.log(this.props.recipes);
         return (
             <React.Fragment>
@@ -23,7 +23,9 @@ class RecipeList extends Component {
                     <div className="row">
                         {
                             recipes.map(recipe => {
-                                return (<Recipe key={recipe.recipe_id} recipe={recipe} />)
+                                return (<Recipe key={recipe.recipe_id}
+                                                recipe={recipe}
+                                                handleDetails={handleDetails}/>)
                             })
                         }
                     </div>
