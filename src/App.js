@@ -40,9 +40,9 @@ class App extends Component {
   }
 
   //Esto es Para conectar con la appi
-  // componentDidMount() {
-  //   this.getRecipes();
-  // }
+  componentDidMount() {
+    this.getRecipes();
+  }
 
 
   //---------------------------------------------------------------
