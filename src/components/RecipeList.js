@@ -4,11 +4,13 @@ import RecipeSearch from './RecipeSearch';
 
 class RecipeList extends Component {
     render() {
-        const {recipes, handleDetails} = this.props;
+        const {recipes, handleDetails, value, handleSubmit, handleChange, error} = this.props;
         //console.log(this.props.recipes);
         return (
             <React.Fragment>
-                <RecipeSearch/>
+                <RecipeSearch value={value}
+                              handleChange={handleChange}
+                              handleSubmit={handleSubmit}/>
 
                 <div className="container my-5">
                     {/*TITLE*/}
@@ -21,13 +23,11 @@ class RecipeList extends Component {
                     </div>
                     {/*END TITLE*/}
                     <div className="row">
-                        {
-                            recipes.map(recipe => {
-                                return (<Recipe key={recipe.recipe_id}
-                                                recipe={recipe}
-                                                handleDetails={handleDetails}/>)
-                            })
-                        }
+                        {error ? <h1 className="text-danger text-center">{error}</h1> : recipes.map(recipe => {
+                            return (<Recipe key={recipe.recipe_id}
+                                            recipe={recipe}
+                                            handleDetails={handleDetails}/>)
+                        })}
                     </div>
                 </div>
 
